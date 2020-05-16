@@ -1,0 +1,9 @@
+<tr>
+  <th>Label</th>
+  <td>
+    <% Label.all.each do |label| %>
+      <%= form.check_box :label_ids, { multiple: true, checked: @task.labels.find_by(id: label.id).present?, include_hidden: false }, label[:id] %>
+      <label class='badge badge-secondary'><%= label.name %></label>
+    <% end %>
+  </td>
+</tr>
